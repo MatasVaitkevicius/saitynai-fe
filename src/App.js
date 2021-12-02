@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import ListFetches from "./ListFetches";
+import ListTypes from "./ListTypes";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
 function App() {
@@ -22,7 +23,14 @@ function App() {
   return (
     <>
       <div className="App">
-        {loading ? "Loading..." : <ListFetches typesData={typesData} />}
+        <Routes>
+          <Route
+            path="/types"
+            element={
+              loading ? "Loading..." : <ListTypes typesData={typesData} />
+            }
+          />
+        </Routes>
       </div>
     </>
   );

@@ -1,26 +1,31 @@
+import React, { useEffect, useState } from "react";
+import ReactDOM from "react-dom";
+import ListFetches from "./ListFetches";
 import "./App.css";
 
 function App() {
-  async function getData() {
-    const response = await fetch("http://localhost:98/api/types/1")
-      .then((response) => response.json())
-      .then((data) => {
-        return data;
-      });
-    return response;
-  }
+  const [loading, setLoading] = useState(true);
+  const [typesData, setTypesData] = useState({ types: [] });
+  const [currentUrl, setCurrentUrl] = useState("http://localhost:98/api");
 
-  async function displayData() {
-    const data = await getData().resolve();
+  useEffect(() => {
+    async function fetchData() {
+      const repsonse = await fetch("http://localhost:98/api/types");
+      const result = await repsonse.json();
+      setTypesData({ types: result });
+      setLoading(false);
+    }
+    fetchData();
+  }, []);
+  console.log(typesData.types[0]);
 
-    console.log(data.name);
-    return data.name;
-  }
-
-  const DATABLET = displayData();
-  console.log(DATABLET);
-
-  return <div className="App"></div>;
+  return (
+    <>
+      <div className="App">
+        {loading ? "Loading..." : <ListFetches typesData={typesData} />}
+      </div>
+    </>
+  );
 }
 
 export default App;

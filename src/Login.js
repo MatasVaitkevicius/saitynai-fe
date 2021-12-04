@@ -53,8 +53,8 @@ function Login({ dispatch }) {
           variant="outlined"
         />
         <LoadingButton
-          onClick={handleClick}
-          loading={loading}
+          // onClick={handleClick}
+          // loading={loading}
           loadingIndicator="Loading..."
           variant="outlined"
         >

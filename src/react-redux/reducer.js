@@ -6,18 +6,16 @@ export default function reducer(state, action) {
       const response = await fetch(url, {
         method: "POST",
         mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log("Success", data);
-        })
-        .catch((error) => {
-          console.error("Error", error);
-        });
+      });
+      // .then((response) => response.json())
+      // .then((data) => {
+      //   console.log("Success", data);
+      // })
+      // .catch((error) => {
+      //   console.error("Error", error);
+      // });
     }
 
     postData(action.payload.apiUrl, {

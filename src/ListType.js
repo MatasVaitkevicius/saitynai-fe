@@ -1,5 +1,5 @@
-export default function Type({typesData}) {
-  console.log(typesData);
+export default function Type({type}) {
+  console.log(type);
   return (
     <>
       {typesData.types.map((element) => {

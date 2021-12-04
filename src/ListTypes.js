@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 
-export default function ListTypes({ typesData }) {
-  console.log(typesData);
+export default function ListTypes({ data }) {
+  console.log(data);
   return (
     <>
-      {typesData.types.map((element) => {
+      {data.types.map((element, id) => {
         console.log(element.name);
         return (
           <Link to={`/types/${element.id}`}>
-            <button>{element.name}</button>
+            <button id={id}>{element.name}</button>
           </Link>
         );
       })}

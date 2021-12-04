@@ -10,6 +10,7 @@ import LoadingButton from "@mui/lab/LoadingButton";
 function Login({ dispatch }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e) => {
     console.log("handlesubmit");
@@ -19,6 +20,7 @@ function Login({ dispatch }) {
       payload: {
         email: email,
         password: password,
+        // apiUrl: "http://192.168.0.154:5000/api/login",
         apiUrl: "http://localhost:98/api/login",
       },
     });
@@ -29,11 +31,6 @@ function Login({ dispatch }) {
       ? setEmail(e.target.value)
       : setPassword(e.target.value);
   };
-
-  // useEffect(() => {
-  //   setEmail(email);
-  //   setPassword(password);
-  // }, [email, password]);
 
   return (
     <>
@@ -54,7 +51,7 @@ function Login({ dispatch }) {
         />
         <LoadingButton
           // onClick={handleClick}
-          // loading={loading}
+          loading={loading}
           loadingIndicator="Loading..."
           variant="outlined"
         >

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { POST_DATA } from "./react-redux/actions";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -20,7 +21,6 @@ function Login({ dispatch }) {
       payload: {
         email: email,
         password: password,
-        // apiUrl: "http://192.168.0.154:5000/api/login",
         apiUrl: "http://localhost:98/api/login",
       },
     });

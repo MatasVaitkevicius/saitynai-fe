@@ -11,7 +11,7 @@ function App({ apiUrl }) {
 
   useEffect(() => {
     async function fetchData() {
-      const repsonse = await fetch(apiUrl);
+      const repsonse = await fetch("http://localhost:98/api/types");
       const result = await repsonse.json();
       setData({ types: result });
       setLoading(false);
